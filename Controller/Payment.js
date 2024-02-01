@@ -9,6 +9,7 @@ export const newPayment = async (req, res) => {
       merchantUserId: "MUID123",
       name: req.body.name,
       amount: req.body.amount * 100,
+      callbackUrl: "https://iksaa.in/order/confirm",
       redirectUrl: `https://iksaa.in/order/confirm`,
       redirectMode: "GET",
       mobileNumber: req.body.number,
@@ -24,8 +25,7 @@ export const newPayment = async (req, res) => {
     const sha256 = crypto.createHash("sha256").update(string).digest("hex");
     const checksum = sha256 + "###" + keyIndex;
 
-    const prod_URL =
-      "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay";
+    const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
     // prod "https://api.phonepe.com/apis/hermes/pg/v1/pay"
     const options = {
       method: "POST",
