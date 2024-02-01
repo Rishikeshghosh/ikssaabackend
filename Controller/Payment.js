@@ -4,7 +4,7 @@ export const newPayment = async (req, res) => {
   try {
     const merchantTransactionId = "MT7850590068188104"; //req.body.transactionId;
     const data = {
-      merchantId: "PGTESTPAYUAT",
+      merchantId: "ghosh.759",
       merchantTransactionId: merchantTransactionId,
       merchantUserId: "MUID123",
       name: req.body.name,
